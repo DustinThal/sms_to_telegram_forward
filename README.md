@@ -1,7 +1,8 @@
 # sms_to_telegram_forward
 a "simple" forwarde from sms messages to telegram
 
-helpful if you want to share accounts that have a SMS authetication with friends. e.g. Netflix
+# This is only a proof of concept if 2FA like planned in NETFLIX will be forwarded to telegram.
+# keep in mind that accountsharing will be illegal in your country
 
 I use my TrueNAS and a cloneJail for this.
 Used Hardware Banggood SIM800C usb stick: 
