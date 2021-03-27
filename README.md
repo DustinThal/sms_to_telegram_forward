@@ -1,10 +1,10 @@
 # sms_to_telegram_forward
 a "simple" forwarde from sms messages to telegram
 
-helpful if you want to share accounts that have a SMS authetication with friends.
+helpful if you want to share accounts that have a SMS authetication with friends. e.g. Netflix
 
 I use my TrueNAS and a cloneJail for this.
-Used Hardware Bangood SIM800C usb stick: 
+Used Hardware Banggood SIM800C usb stick: 
 https://www.banggood.com/de/LC-GSM-SIM800C-2-USB-to-GSM-Serial-Port-GPRS-SIM800C-Module-with-bluetooth-Computer-Control--p-1420413.html?cur_warehouse=CN&rmmds=search
 
 Installation:
@@ -12,7 +12,7 @@ Installation:
 1. clone jail erstellen, mine =smsrouter
 
 2. Einrichten des "usb-durchschleifen" : https://petermolnar.net/article/freenas-domoticz-zigbee-zwave-rflink/
-   modifizierte Datein für z.B. CC2652rb von Slaesh https://slae.sh/projects/cc2652/ sind hier im Ordner
+   modifizierte Datein für SIM800C von Banggood sind hier im Ordner
    
    1. ordner erstelle unter /mnt/[Pool für Jails]/bin
    
