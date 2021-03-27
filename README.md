@@ -26,19 +26,25 @@ Installation:
    5. TrueNAS -> Tasks -> Init/Shutdown Script -> ADD [Type=Script, Script*=z.B. /mnt/systempool/bin/prestart_usb.sh, When=Post Init]
 
 3. in der Jail ausführen:
-   pkg update
-   pkg install npm
-   npm install -g --unsafe-perm node-red
-   npm install pm2 -g
-   pm2 start node-red
-   pm2 save
-   pm2 startup
-   pm2 save
-   npm i node-telegram-bot-api
-   npm i socks5-https-client
+   1. pkg update
+   2. pkg install npm
+   3. npm install -g --unsafe-perm node-red
+   4. npm install pm2 -g
+   5. pm2 start node-red
+   6. pm2 save
+   7. pm2 startup
+   8. pm2 save
+   9. npm i node-telegram-bot-api
+   10. npm i socks5-https-client
    
 4. mit Hilfe von: https://forum.iobroker.net/topic/26058/sms-und-oder-anruf-mit-sim800-modul-und-node-red habe ich die kommenden Teile erstellt:
 
 5. die IP der Jail öffnen mit Poer 1880 und die 2 flows importieren (liegen auch hier):
    SetSettings ist um den Stick zu konfigurieren:
-   ReceiveSMSsendtoTelegram macht was der Titel sagt ACHTUNG: chatId und bottoken müssen noch eingegeben\geändert werden.
+      1. SIM800C Commands:   https://lastminuteengineers.com/sim800l-gsm-module-arduino-tutorial/
+      2. Configuring TEXT mode
+      3. AT+CMGF=1
+      4. Decides how newly arrived SMS messages should be handled
+      5. AT+CNMI=1,2,0,0,0
+      
+6. ReceiveSMSsendtoTelegram macht was der Titel sagt ACHTUNG: chatId und bottoken müssen noch eingegeben\geändert werden.
