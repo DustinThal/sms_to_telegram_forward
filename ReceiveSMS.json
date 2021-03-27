@@ -1,0 +1,94 @@
+[
+    {
+        "id": "60ac5f9c.a88ba8",
+        "type": "tab",
+        "label": "ReceiveSMSsendto Telegram",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d450864.15df4f8",
+        "type": "function",
+        "z": "60ac5f9c.a88ba8",
+        "name": "SendMessageToTelegram",
+        "func": "\nvar m = msg.payload;\nvar cmd = m.split(\":\");\n\n\nif(cmd[0]==\"+CMT\")\n{\n    flow.set('store',m);\n    \n}\nelse if(flow.get('store')!==0){\n    var tmp = flow.get('store').split(\"\\\"\");\n    msg.payload = \n    {\n        type: 'message',\n        content: \"Von: \" + tmp[1] + \"\\nInhalt: \\n\" + m,\n        chatId: [needs to be set],\n    }\n    \n\n    flow.set('store',0);\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "d8ed5a28.2d5e68"
+            ]
+        ]
+    },
+    {
+        "id": "cae104b4.b76e48",
+        "type": "serial in",
+        "z": "60ac5f9c.a88ba8",
+        "name": "Receive Unread SMS after Notification",
+        "serial": "44267baf.756834",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "d450864.15df4f8"
+            ]
+        ]
+    },
+    {
+        "id": "d8ed5a28.2d5e68",
+        "type": "telegram sender",
+        "z": "60ac5f9c.a88ba8",
+        "name": "",
+        "bot": "fee9b6e9.9f98f8",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 890,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44267baf.756834",
+        "type": "serial-port",
+        "serialport": "/dev/ttySim800C",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "fee9b6e9.9f98f8",
+        "type": "telegram bot",
+        "botname": "netflix",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    }
+]

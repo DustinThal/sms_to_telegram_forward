@@ -1,0 +1,81 @@
+[
+    {
+        "id": "fde9a545.31e14",
+        "type": "tab",
+        "label": "SetSettings",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "747954b5.b09664",
+        "type": "inject",
+        "z": "fde9a545.31e14",
+        "name": "SetSettings",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "settings",
+        "payload": "CMGF=1;+CNMI=1,2,0,0,0",
+        "payloadType": "str",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "e8acc297.4153a"
+            ]
+        ]
+    },
+    {
+        "id": "e8acc297.4153a",
+        "type": "function",
+        "z": "fde9a545.31e14",
+        "name": "SetSettings",
+        "func": "var at_cmd = \"AT+\"+msg.payload;\nmsg.payload=at_cmd+\"\\r\\n\";\nreturn msg;\n\n//CMGF=1 -> Textmode SMS\n//CNMI=2,1 -> Notify-Setting for incoming SMS\n",
+        "outputs": "1",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "68c4f48c.8954ec"
+            ]
+        ]
+    },
+    {
+        "id": "68c4f48c.8954ec",
+        "type": "serial out",
+        "z": "fde9a545.31e14",
+        "name": "Serail-Out",
+        "serial": "44267baf.756834",
+        "x": 720,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "44267baf.756834",
+        "type": "serial-port",
+        "serialport": "/dev/ttySim800C",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    }
+]
