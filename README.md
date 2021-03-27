@@ -29,5 +29,14 @@ Installation:
    pkg update
    pkg install npm
    npm install -g --unsafe-perm node-red
+   npm install pm2 -g
+   pm2 start node-red
+   pm2 save
+   pm2 startup
+   pm2 save
+   npm i node-telegram-bot-api
+   npm i socks5-https-client
    
-4. kommt noch
+4. mit Hilfe von: https://forum.iobroker.net/topic/26058/sms-und-oder-anruf-mit-sim800-modul-und-node-red habe ich die kommenden Teile erstellt:
+
+5. chatId muss geändert werden
