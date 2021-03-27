@@ -39,4 +39,6 @@ Installation:
    
 4. mit Hilfe von: https://forum.iobroker.net/topic/26058/sms-und-oder-anruf-mit-sim800-modul-und-node-red habe ich die kommenden Teile erstellt:
 
-5. chatId muss geändert werden
+5. die IP der Jail öffnen mit Poer 1880 und die 2 flows importieren (liegen auch hier):
+   SetSettings ist um den Stick zu konfigurieren:
+   ReceiveSMSsendtoTelegram macht was der Titel sagt ACHTUNG: chatId und bottoken müssen noch eingegeben\geändert werden.
